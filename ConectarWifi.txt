@@ -1,0 +1,10 @@
+iw dev
+iw wlan0 link
+sudo iw wlan0 scan
+sudo ip link set wlan0 up
+echo "blacklist hp_wmi" | sudo tee /etc/modprobe.d/hp.conf
+sudo rfkill unblock all
+sudo ip link set wlan0 up
+sudo iw wlan0 scan
+#ESSID=nombre del wifi
+nmcli dev wifi connect ESSID password CLAVE
